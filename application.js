@@ -68,7 +68,7 @@ app.post('/link', jsonParser, function(req,res) {
       }
   };
   
-  console.log("Sending link push to " + JSON.stringify(req.body));
+  console.log("Sending link push to " + JSON.stringify(req.body.remoteUserName));
   
   mbaasApi.push(message, options,
     function (err, res) {
