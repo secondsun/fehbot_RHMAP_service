@@ -63,9 +63,9 @@ app.post('/link', jsonParser, function(req,res) {
       alert: JSON.stringify({action:"link"})
   }, options = {
       broadcast: true,
-      criteria: {
-        alias: req.body.remoteUserName
-      }
+      // criteria: {
+      //   alias: req.body.remoteUserName
+      // }
   };
   
   console.log("Sending link push to " + JSON.stringify(req.body));
