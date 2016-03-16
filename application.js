@@ -62,7 +62,8 @@ app.post('/link', jsonParser, function(req,res) {
     var message = {
       alert: JSON.stringify({action:"link"})
   }, options = {
-      broadcast: true,
+      broadcast: true
+      //,
       // criteria: {
       //   alias: req.body.remoteUserName
       // }
