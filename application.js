@@ -64,7 +64,7 @@ app.post('/link', jsonParser, function(req,res) {
   }, options = {
       broadcast: true,
       criteria: {
-        alias: req.body.remoteUserName
+        alias: req.body.remoteUserName + "_sender"
       }
   };
   
