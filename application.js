@@ -24,7 +24,7 @@ app.post('/karma', jsonParser, function (req, res) {
   }, options = {
       broadcast: true,
       criteria: {
-        alias: req.body.remoteUserName
+        alias: [req.body.remoteUserName]
       }
   };
   
@@ -64,11 +64,11 @@ app.post('/link', jsonParser, function(req,res) {
   }, options = {
       broadcast: true,
       criteria: {
-        alias: [req.body.remoteUserName + "_sender"]
+        alias: [req.body.remoteUserName]
       }
   };
   
-  console.log("Sending link push to " + (req.body.remoteUserName+ "_sender"));
+  console.log("Sending link push to " + (req.body.remoteUserName));
   
   mbaasApi.push(message, options,
     function (err, res) {
