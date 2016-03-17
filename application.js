@@ -62,6 +62,7 @@ app.use('/mbaas', mbaasExpress.mbaas);
 app.post('/tell', jsonParser, function(req,res) {
   
   var messageText = req.body.sender + ' says ' + req.body.message;
+  
   var message = {
       alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.sender});
   }, options = {
