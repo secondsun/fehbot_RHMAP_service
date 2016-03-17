@@ -36,7 +36,7 @@ app.post('/karma', jsonParser, function (req, res) {
       }
   };
   
-    console.log("Sending karma push to " + JSON.stringify(req.body));
+    console.log("Sending karma push to " + JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.from}));
 
   
   mbaasApi.push(message, options,
