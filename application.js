@@ -87,7 +87,7 @@ app.post('/tell', jsonParser, function(req,res) {
 });
 
 app.post('/link', jsonParser, function(req,res) {
-  
+  console.log("Sending link push to " + JSON.stringify(req.body));
   
     var message = {
       alert: JSON.stringify({action:"link"})
