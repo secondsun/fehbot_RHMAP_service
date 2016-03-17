@@ -19,7 +19,7 @@ app.post('/karma', jsonParser, function (req, res) {
   var direction = req.body.direction;
   console.log(nick + ' grew to ' + score + ' by ' + direction);
   
-  var messageText = ''''
+  var messageText = '';
   
   if (direction > 0) {
     
