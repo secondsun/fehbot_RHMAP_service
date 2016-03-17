@@ -22,7 +22,7 @@ app.post('/karma', jsonParser, function (req, res) {
   var messageText = '';
   
   if (direction > 0) {
-    
+    messageText = req.body.from + ' gave you karma (Score is ' + score + ')';
   }
   
   var message = {
