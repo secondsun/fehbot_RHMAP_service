@@ -60,8 +60,36 @@ app.use('/mbaas', mbaasExpress.mbaas);
 //{"nick":"summersp","remoteUserName":"113641058622281728775","apiKey":"test","secret":"240736058","action":"link"}
 
 app.post('/tell', jsonParser, function(req,res) {
-  console.log(req.body.remoteUserName);
-  res.end('{}');
+    var messageText = '';
+  
+  if (direction > 0) {
+    messageText = req.body.from + ' gave you karma (Score is ' + score + ')!';
+  } else {
+    messageText = req.body.from + ' dropped your karma (Score is ' + score + ')!';
+  }
+  
+  var message = {
+      alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.from});
+  }, options = {
+      broadcast: true,
+      criteria: {
+        alias: [req.body.remoteUserName]
+      }
+  };
+  
+    console.log("Sending karma push to " + JSON.stringify(req.body));
+
+  
+  mbaasApi.push(message, options,
+    function (err, res) {
+      if (err) {
+        console.log(err.toString());
+      } else {
+        console.log("status : " + res.status);
+      }
+    });
+    
+    res.end();
 });
 
 app.post('/link', jsonParser, function(req,res) {
