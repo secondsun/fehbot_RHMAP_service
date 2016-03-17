@@ -68,7 +68,7 @@ app.post('/tell', jsonParser, function(req,res) {
   }, options = {
       broadcast: true,
       criteria: {
-        alias: [req.body.userName]
+        alias: [req.body.remoteUserName]
       }
   };
   
