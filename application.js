@@ -60,16 +60,11 @@ app.use('/mbaas', mbaasExpress.mbaas);
 //{"nick":"summersp","remoteUserName":"113641058622281728775","apiKey":"test","secret":"240736058","action":"link"}
 
 app.post('/tell', jsonParser, function(req,res) {
-    var messageText = '';
+  var messageText = req.body.sender + ' says ' + req.body.message;
   
-  if (direction > 0) {
-    messageText = req.body.from + ' gave you karma (Score is ' + score + ')!';
-  } else {
-    messageText = req.body.from + ' dropped your karma (Score is ' + score + ')!';
-  }
   
   var message = {
-      alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.from});
+      alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.sender});
   }, options = {
       broadcast: true,
       criteria: {
