@@ -74,7 +74,6 @@ app.post('/tell', jsonParser, function(req,res) {
   
   console.log("Sending tell push to " + JSON.stringify(req.body));
 
-  
   mbaasApi.push(message, options,
     function (err, res) {
       if (err) {
