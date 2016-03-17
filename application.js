@@ -28,7 +28,7 @@ app.post('/karma', jsonParser, function (req, res) {
   }
   
   var message = {
-      alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.from})
+      alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.from})''
   }, options = {
       broadcast: true,
       criteria: {
