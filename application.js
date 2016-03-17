@@ -60,9 +60,8 @@ app.use('/mbaas', mbaasExpress.mbaas);
 //{"nick":"summersp","remoteUserName":"113641058622281728775","apiKey":"test","secret":"240736058","action":"link"}
 
 app.post('/tell', jsonParser, function(req,res) {
+  
   var messageText = req.body.sender + ' says ' + req.body.message;
-  
-  
   var message = {
       alert: JSON.stringify({action:"karma", message:messageText, date:new Date().getTime(), from:req.body.sender});
   }, options = {
